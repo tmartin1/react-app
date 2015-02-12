@@ -8,16 +8,28 @@ var ReactTransitionGroup = React.addons.TransitionGroup;
 
 // CSS
 require('../../styles/normalize.css');
-require('../../styles/main.css');
+require('../../styles/app.css');
 
 var imageURL = require('../../images/yeoman.png');
+
+var Question = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <h2>{this.props.query}</h2>
+        <input type="text"></input>
+      </div>
+      );
+  }
+});
 
 var ReactAppApp = React.createClass({
   render: function() {
     return (
-      <div className='main'>
+      <div className='app'>
         <ReactTransitionGroup transitionName="fade">
           <img src={imageURL} />
+          <Question query={'What is your name?'}></Question>
         </ReactTransitionGroup>
       </div>
     );
